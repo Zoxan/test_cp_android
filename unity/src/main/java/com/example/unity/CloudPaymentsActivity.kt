@@ -20,19 +20,19 @@ class CloudPaymentsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d("xxx", "===onCreate Kotlin 1")
-//        val cpSdkLauncher = CloudpaymentsSDK.getInstance().launcher(this, result = {
-//            if (it.status != null) {
-//                if (it.status == CloudpaymentsSDK.TransactionStatus.Succeeded) {
-//                    Log.d("xxx", "===Успешно! Транзакция №${it.transactionId}")
-//                } else {
-//                    if (it.reasonCode != 0) {
-//                        Log.d("xxx", "===Ошибка! Транзакция №${it.transactionId}. Код ошибки ${it.reasonCode}")
-//                    } else {
-//                        Log.d("xxx", "===Ошибка! Транзакция №${it.transactionId}")
-//                    }
-//                }
-//            }
-//        })
+        val cpSdkLauncher = CloudpaymentsSDK.getInstance().launcher(this, result = {
+            if (it.status != null) {
+                if (it.status == CloudpaymentsSDK.TransactionStatus.Succeeded) {
+                    Log.d("xxx", "===Успешно! Транзакция №${it.transactionId}")
+                } else {
+                    if (it.reasonCode != 0) {
+                        Log.d("xxx", "===Ошибка! Транзакция №${it.transactionId}. Код ошибки ${it.reasonCode}")
+                    } else {
+                        Log.d("xxx", "===Ошибка! Транзакция №${it.transactionId}")
+                    }
+                }
+            }
+        })
 
         Log.d("xxx", "===onCreate Kotlin 2")
 
@@ -60,8 +60,8 @@ class CloudPaymentsActivity : AppCompatActivity() {
         )
 
         Log.d("xxx", "===onCreate Kotlin 5")
-//        cpSdkLauncher.launch(configuration)
-        CloudpaymentsSDK.getInstance().start(configuration, this, 777)
+        cpSdkLauncher.launch(configuration)
+//        CloudpaymentsSDK.getInstance().start(configuration, this, 777)
 
         Log.d("xxx", "===onCreate Kotlin 6")
     }
